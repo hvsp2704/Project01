@@ -27,16 +27,18 @@ function App() {
       });
       
       var requestOptions = {
-        method: 'PUT',
+        method: 'POST',
         headers: myHeaders,
         body: raw,
-        redirect: 'follow'
       };
        
-      fetch("https://Last-env.eba-2zttxjs2.us-west-2.elasticbeanstalk.com/sequence/", requestOptions)
-      // fetch("http://localhost:3002/sequence/", requestOptions)
+      fetch("http://Last-env.eba-2zttxjs2.us-west-2.elasticbeanstalk.com/sequence/check", requestOptions) 
+      // fetch("http://localhost:3002/sequence/check", requestOptions) 
         .then(response => response.text())
-        .then(result => setJsonString((result)))
+        .then(result => {
+          setJsonString((result))
+          console.log ((result))
+        })
         .catch(error => console.log('error', error));
       
     } catch (error) {
