@@ -12,14 +12,18 @@ function App() {
   };
 
   const handleConvertToJson = async() => {
-    console.log("here");
+    // console.log("here");
     try {
+      var temp = inputText.replace(/\n+/g, '');
+      var temp = temp.replace(/\s+/g, '');
+      
+      console.log(`${JSON.stringify(temp)}`)
 
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
       
       var raw = JSON.stringify({
-        "sequence": `${inputText}`
+        "sequence": `${temp}`
       });
       
       var requestOptions = {
@@ -29,7 +33,8 @@ function App() {
         redirect: 'follow'
       };
        
-      fetch("http://Last-env.eba-2zttxjs2.us-west-2.elasticbeanstalk.com/sequence/", requestOptions)
+      fetch("https://Last-env.eba-2zttxjs2.us-west-2.elasticbeanstalk.com/sequence/", requestOptions)
+      // fetch("http://localhost:3002/sequence/", requestOptions)
         .then(response => response.text())
         .then(result => setJsonString((result)))
         .catch(error => console.log('error', error));
@@ -41,12 +46,22 @@ function App() {
   };
 
   return (
+    
     <div>
-      <input type="text" value={inputText} onChange={handleInputChange} />
-      <button onClick={handleConvertToJson}>find</button>
+      <br></br>
+      <br></br>
+      <center>
+      <p>Inpur your sequence in the text box </p>
+      <input type="textarea" value={inputText} onChange={handleInputChange} />
+      <button onClick={handleConvertToJson}>Check</button>
+      
+      <br></br>
+      <br></br>
+      <br></br>
       <div>
-        <pre>{jsonString}</pre>
+        <h3>Result:    </h3><pre>{jsonString}</pre>
       </div>
+      </center>
     </div>
   );
 }
