@@ -21,19 +21,21 @@ function App() {
 
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("Access-Control-Allow-Origin","*");
+      myHeaders.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
       
       var raw = JSON.stringify({
         "sequence": `${temp}`
       });
       
       var requestOptions = {
-        method: 'POST',
+        method: 'PUT',
         headers: myHeaders,
-        body: raw,
+        body: raw
       };
        
-      fetch("http://Last-env.eba-2zttxjs2.us-west-2.elasticbeanstalk.com/sequence/check", requestOptions) 
-      // fetch("http://localhost:3002/sequence/check", requestOptions) 
+      fetch("http://Last-env.eba-2zttxjs2.us-west-2.elasticbeanstalk.com/sequence/", requestOptions) 
+      // fetch("http://localhost:3002/sequence/", requestOptions) 
         .then(response => response.text())
         .then(result => {
           setJsonString((result))
