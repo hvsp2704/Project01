@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/static/js/main.bea392f8.js",
+    "main.js": "/static/js/main.38bd6534.js",
     "static/media/axios.cjs": "/static/media/axios.e7d77f0967a69d31d7fc.cjs",
     "index.html": "/index.html",
-    "main.bea392f8.js.map": "/static/js/main.bea392f8.js.map"
+    "main.38bd6534.js.map": "/static/js/main.38bd6534.js.map"
   },
   "entrypoints": [
-    "static/js/main.bea392f8.js"
+    "static/js/main.38bd6534.js"
   ]
 }
