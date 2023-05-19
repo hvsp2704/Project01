@@ -28,8 +28,8 @@ function App() {
         body: raw,
         redirect: 'follow'
       };
-      
-      fetch("http://localhost:3002/sequence/", requestOptions)
+       
+      fetch("http://Last-env.eba-2zttxjs2.us-west-2.elasticbeanstalk.com/sequence/", requestOptions)
         .then(response => response.text())
         .then(result => setJsonString((result)))
         .catch(error => console.log('error', error));
