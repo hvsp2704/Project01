@@ -12,7 +12,7 @@ function App() {
     // console.log("here");
     try {
       var temp = inputText.replace(/\n+/g, '');
-      var temp = temp.replace(/\s+/g, '');
+      temp = temp.replace(/\s+/g, '');
       
       console.log(`${JSON.stringify(temp)}`)
 
